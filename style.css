@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Caveat', cursive;
+    cursor: default;
+}
+body {
+    background: linear-gradient(45deg, #181818, #2a2a2a);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr 1fr;
+    overflow: hidden;
+}
+
+header {
+    background: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header section {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 5px;
+    margin: 0 30px;
+}
+header section img {
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    position: relative;
+    left: 25px;
+}
+header .status-bar {
+    width: 50px;
+    height: 50px;
+    background: #8c8c8c;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    left: -25px;
+}
+header .status-bar div {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -50%;
+    transition: .2s;
+}
+header .line {
+    width: 0;
+    height: 5px;
+    border-radius: 5px;
+    background: #fff;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    align-self: center;
+    justify-self: center;
+    position: relative;
+    top: 10px;
+    transition: .2s;
+}
+
+nav {
+    background: #212121;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    padding: 0 50px;
+}
+nav .help{
+    color: #DEDEDE;
+    font-size: 25px;
+}
+nav .help-window {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 200;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: .5s;
+}
+nav .person {
+    text-align: center;
+    font-size: 30px;
+    color: #DEDEDE;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+main .action-left, main .action-right {
+    background: linear-gradient(-90deg, transparent, rgba(73, 75, 73, 0.5), transparent);
+    transition: .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    font-size: 30px;
+    color: #DEDEDE;
+    text-align: center;
+}
+main .action-left:hover, main .action-right:hover {
+    filter: brightness(1.4);
+}
+.action-left-changing {
+    animation: changingOptionLeft 1.5s ease-in-out;
+}
+.action-right-changing {
+    animation: changingOptionRight 1.5s ease-in-out;
+}
+main .action-left img, main .action-right img {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+main .card {
+    background: linear-gradient(45deg, #0021a2, #0026d0);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 50px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    color: #DEDEDE;
+}
+.card-changing {
+    animation: changing 1.5s ease-in-out;
+}
+main .card .desc {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+main .card div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+main .card div img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.blocker {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+.blocker-on {
+    top: 0;
+}
+
+@keyframes changing {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    25% {
+        transform: scale(.9) translateY(0);
+    }
+    50% {
+        opacity: 0;
+        transform: scale(.9) translateY(25%);
+    }
+    75% {
+        transform: scale(.9) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes changingOptionLeft {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes changingOptionRight {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
