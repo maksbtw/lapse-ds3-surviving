@@ -25,7 +25,6 @@ header section {
     display: grid;
     grid-template-columns: 50px 50px;
     grid-template-rows: 50px 5px;
-    margin: 0 30px;
 }
 header section img {
     width: 50px;
@@ -211,5 +210,31 @@ main .card div img {
     }
     100%{
         transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+    }
+    main .action-left {
+        grid-column: 1;
+        grid-row: 2;
+        background: linear-gradient(0deg, transparent, rgba(73, 75, 73, 0.5), transparent);
+    }
+    main .action-right{
+        grid-column: 2;
+        grid-row: 2;
+        background: linear-gradient(0deg, transparent, rgba(73, 75, 73, 0.5), transparent);
+    }
+    main .card {
+        grid-column: 1;
+        grid-row: 1;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    nav {
+        padding: 0 20px;
     }
 }
